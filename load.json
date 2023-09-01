@@ -1,0 +1,285 @@
+[
+  {
+    "model": "isp.tariffplane",
+    "pk": 1,
+    "fields": {
+      "name": "Basic Plan",
+      "speed": 100,
+      "price": 30
+    }
+  },
+  {
+    "model": "isp.tariffplane",
+    "pk": 2,
+    "fields": {
+      "name": "Standard Plan",
+      "speed": 250,
+      "price": 50
+    }
+  },
+  {
+    "model": "isp.tariffplane",
+    "pk": 3,
+    "fields": {
+      "name": "Premium Plan",
+      "speed": 500,
+      "price": 80
+    }
+  },
+  {
+    "model": "isp.tariffplane",
+    "pk": 4,
+    "fields": {
+      "name": "Ultra Plan",
+      "speed": 1000,
+      "price": 120
+    }
+  },
+  {
+    "model": "isp.tariffplane",
+    "pk": 5,
+    "fields": {
+      "name": "Custom Plan",
+      "speed": 200,
+      "price": 40
+    }
+  },
+  {
+    "model": "isp.city",
+    "pk": 1,
+    "fields": {
+      "name": "New York",
+      "region": "New York",
+      "country": "United States"
+    }
+  },
+  {
+    "model": "isp.city",
+    "pk": 2,
+    "fields": {
+      "name": "Paris",
+      "region": "Île-de-France",
+      "country": "France"
+    }
+  },
+  {
+    "model": "isp.city",
+    "pk": 3,
+    "fields": {
+      "name": "Tokyo",
+      "region": "Tokyo",
+      "country": "Japan"
+    }
+  },
+  {
+    "model": "isp.city",
+    "pk": 4,
+    "fields": {
+      "name": "London",
+      "region": "England",
+      "country": "United Kingdom"
+    }
+  },
+  {
+    "model": "isp.city",
+    "pk": 5,
+    "fields": {
+      "name": "Sydney",
+      "region": "New South Wales",
+      "country": "Australia"
+    }
+  },
+  {
+    "model": "isp.address",
+    "pk": 1,
+    "fields": {
+      "city": 1,
+      "street": "123 Main St",
+      "building": "Building A",
+      "connection_technology": "FTTB",
+      "users": []
+    }
+  },
+  {
+    "model": "isp.address",
+    "pk": 2,
+    "fields": {
+      "city": 2,
+      "street": "456 Elm St",
+      "building": "Apartment 5B",
+      "connection_technology": "FTTH",
+      "users": []
+    }
+  },
+  {
+    "model": "isp.address",
+    "pk": 3,
+    "fields": {
+      "city": 3,
+      "street": "789 Oak Ave",
+      "building": "Unit C",
+      "connection_technology": "FTTC",
+      "users": []
+    }
+  },
+  {
+    "model": "isp.address",
+    "pk": 4,
+    "fields": {
+      "city": 4,
+      "street": "987 Pine Rd",
+      "building": "House 12",
+      "connection_technology": "DOCSIS",
+      "users": []
+    }
+  },
+  {
+    "model": "isp.address",
+    "pk": 5,
+    "fields": {
+      "city": 5,
+      "street": "654 Cedar Lane",
+      "building": "Apartment 3D",
+      "connection_technology": "FTTH",
+      "users": []
+    }
+  },
+  {
+    "model": "isp.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$6uM28XWOFX6ewyloJzjqmt$L+ZhofPylneoaL2iZS4sZu4ZMUNb4oIevfAdzOMn/eE=",
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "Admin",
+      "last_name": "User",
+      "phone": "234234234",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2022-08-08T13:58:29Z",
+      "balance": 0.0,
+      "tariff_plane": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "isp.user",
+    "pk": 2,
+    "fields": {
+      "username": "user1",
+      "first_name": "John",
+      "last_name": "Doe",
+      "phone": "+1234567890",
+      "balance": 500.0,
+      "tariff_plane": null,
+      "password": "set_random_password_here"
+    }
+  },
+  {
+    "model": "isp.user",
+    "pk": 3,
+    "fields": {
+      "username": "user2",
+      "first_name": "Alice",
+      "last_name": "Smith",
+      "phone": "+9876543210",
+      "balance": 800.0,
+      "tariff_plane": 1,
+      "password": "set_random_password_here"
+    }
+  },
+  {
+    "model": "isp.user",
+    "pk": 4,
+    "fields": {
+      "username": "user3",
+      "first_name": "David",
+      "last_name": "Johnson",
+      "phone": "+5555555555",
+      "balance": 300.0,
+      "tariff_plane": 2,
+      "password": "set_random_password_here"
+    }
+  },
+  {
+    "model": "isp.user",
+    "pk": 5,
+    "fields": {
+      "username": "user4",
+      "first_name": "Sarah",
+      "last_name": "Williams",
+      "phone": "+1111111111",
+      "balance": 700.0,
+      "tariff_plane": 3,
+      "password": "set_random_password_here"
+    }
+  },
+  {
+    "model": "isp.user",
+    "pk": 6,
+    "fields": {
+      "username": "user5",
+      "first_name": "Michael",
+      "last_name": "Brown",
+      "phone": "+2222222222",
+      "balance": 1000.0,
+      "tariff_plane": 4,
+      "password": "set_random_password_here"
+    }
+  },
+  {
+    "model": "isp.user",
+    "pk": 7,
+    "fields": {
+      "username": "user6",
+      "first_name": "Emma",
+      "last_name": "Davis",
+      "phone": "+3333333333",
+      "balance": 200.0,
+      "tariff_plane": null,
+      "password": "set_random_password_here"
+    }
+  },
+  {
+    "model": "isp.user",
+    "pk": 8,
+    "fields": {
+      "username": "user7",
+      "first_name": "Daniel",
+      "last_name": "Miller",
+      "phone": "+4444444444",
+      "balance": 600.0,
+      "tariff_plane": null,
+      "password": "set_random_password_here"
+    }
+  },
+  {
+    "model": "isp.user",
+    "pk": 9,
+    "fields": {
+      "username": "user8",
+      "first_name": "Olivia",
+      "last_name": "Wilson",
+      "phone": "+6666666666",
+      "balance": 900.0,
+      "tariff_plane": 5,
+      "password": "set_random_password_here"
+    }
+  },
+  {
+    "model": "isp.user",
+    "pk": 10,
+    "fields": {
+      "username": "user9",
+      "first_name": "Liam",
+      "last_name": "Taylor",
+      "phone": "+7777777777",
+      "balance": 400.0,
+      "tariff_plane": null,
+      "password": "set_random_password_here"
+    }
+  }
+]
+
+
