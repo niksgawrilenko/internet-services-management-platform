@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Control panel Home</h1>
+  <p>Welcome to Best CRM Internet Providers</p>
+  <h2>Dynamic content</h2>
+  <p>The Internet services has the following record counts:</p>
+  <ul>
+    <li><strong>Cities:</strong> {{ num_cities }}</li>
+    <li><strong>Addresses:</strong> {{ num_addresses }}</li>
+    <li><strong>Users:</strong> {{ num_users }}</li>
+  </ul>
+
+  <p>You have visited this page
+      {{ num_visits }} time{{ num_visits|pluralize }}.
+  </p>
+
+{% endblock %}

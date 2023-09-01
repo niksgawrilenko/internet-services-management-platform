@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Users List
+{#      <a href="{% url 'taxi:driver-create' %}" class="btn btn-primary link-to-page">#}
+{#        Create#}
+{#      </a>#}
+    </h1>
+
+    {% if users %}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Phone number</th>
+      </tr>
+    {% for user in users %}
+      <tr>
+        <td>{{ user.id }}</td>
+{#        <td><a href="{{ driver.get_absolute_url }}">{{ driver.username }} {% if user == driver %} (Me){% endif %}</a></td>#}
+        <td>{{ user.first_name }}</td>
+        <td>{{ user.last_name }}</td>
+        <td>{{ user.phone }}</td>
+      </tr>
+    {% endfor %}
+    </table>
+    {% else %}
+      <p>There are no drivers in the service.</p>
+    {% endif %}
+{% endblock %}

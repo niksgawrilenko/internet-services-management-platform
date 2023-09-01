@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>
+    Cities List
+  </h1>
+  {% if cities %}
+    <table class="table">
+      <tr>
+        <th>Name</th>
+        <th>Region</th>
+        <th>Country</th>
+      </tr>
+      {% for city in cities %}
+        <tr>
+          <td>
+            {{ city.name }}
+          </td>
+          <td>
+            {{ city.region }}
+          </td>
+          <td>
+            {{ city.country }}
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+
+  {% else %}
+    <p>There are no manufacturers in the service.</p>
+  {% endif %}
+{% endblock %}
