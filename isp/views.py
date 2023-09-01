@@ -3,7 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
 from django.views import generic
 
-from isp.models import User, Address, City
+from isp.models import User, Address, City, TariffPlane
 
 
 @login_required
@@ -40,3 +40,9 @@ class AddressListView(LoginRequiredMixin, generic.ListView):
     model = Address
     context_object_name = "addresses"
     template_name = "isp/addresses_list.html"
+
+
+class TariffPlaneListView(LoginRequiredMixin, generic.ListView):
+    model = TariffPlane
+    context_object_name = "tariff_planes"
+    template_name = "isp/tariff_planes_list.html"
