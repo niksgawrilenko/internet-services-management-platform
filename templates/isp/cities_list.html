@@ -2,16 +2,23 @@
 {% block content %}
   <h1>
     Cities List
+    <a href="{% url 'isp:city-create' %}" class="btn btn-primary link-to-page">
+      Create
+    </a>
   </h1>
   {% if cities %}
     <table class="table">
       <tr>
+        <th>ID</th>
         <th>Name</th>
         <th>Region</th>
         <th>Country</th>
       </tr>
       {% for city in cities %}
         <tr>
+          <td>
+            <a href="{% url 'isp:city-detail' pk=city.id %} ">{{ city.id }}</a>
+          </td>
           <td>
             {{ city.name }}
           </td>
@@ -20,6 +27,16 @@
           </td>
           <td>
             {{ city.country }}
+          </td>
+          <td>
+            <a href="{% url 'isp:city-delete' pk=city.id %}" class="btn btn-danger">
+              Delete
+            </a>
+          </td>
+          <td>
+          <a href="{% url 'isp:city-update' pk=city.id %}" class="btn btn-secondary">
+            Update
+          </a>
           </td>
         </tr>
       {% endfor %}

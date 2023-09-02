@@ -1,8 +1,10 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views import generic
 
+from isp.forms import CityCreationForm
 from isp.models import User, Address, City, TariffPlane
 
 
@@ -26,8 +28,30 @@ def index(request):
 
 class CityListView(LoginRequiredMixin, generic.ListView):
     model = City
+    paginate_by = 5
     context_object_name = "cities"
     template_name = "isp/cities_list.html"
+
+
+class CityDetailView(LoginRequiredMixin, generic.DetailView):
+    model = City
+
+
+class CityCreateView(LoginRequiredMixin, generic.CreateView):
+    model = City
+    form_class = CityCreationForm
+    success_url = reverse_lazy("isp:city-list")
+
+
+class CityUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = City
+    fields = "__all__"
+    success_url = reverse_lazy("isp:city-list")
+
+
+class CityDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = City
+    success_url = reverse_lazy("isp:city-list")
 
 
 class UserListView(LoginRequiredMixin, generic.ListView):

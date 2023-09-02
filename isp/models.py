@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.urls import reverse
 
 
 class City(models.Model):
@@ -13,6 +14,9 @@ class City(models.Model):
     class Meta:
         verbose_name = "city"
         verbose_name_plural = "cities"
+
+    def get_absolute_url(self):
+        return reverse("isp:city-detail", kwargs={"pk": self.pk})
 
 
 class TariffPlane(models.Model):
