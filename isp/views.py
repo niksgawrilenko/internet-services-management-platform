@@ -1,10 +1,11 @@
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import render
+from django.db.models import Count
+from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
-from isp.forms import CityCreationForm, TariffCreationForm
+from isp.forms import CityCreationForm, TariffCreationForm, CustomerCreationForm
 from isp.models import Customer, Address, City, Tariff
 
 
@@ -28,7 +29,7 @@ def index(request):
 
 class CityListView(LoginRequiredMixin, generic.ListView):
     model = City
-    paginate_by = 5
+    paginate_by = 10
     context_object_name = "cities"
     template_name = "isp/cities_list.html"
 
@@ -52,8 +53,38 @@ class CityDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class CustomerListView(LoginRequiredMixin, generic.ListView):
     model = Customer
+    paginate_by = 10
     context_object_name = "customers"
     template_name = "isp/customers_list.html"
+
+
+class CustomerDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Customer
+    template_name = "isp/customer_detail.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["addresses_with_users"] = Address.objects.annotate(num_customers=Count('customers')).filter(num_customers__gt=0)
+        return context
+
+
+class CustomerCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Customer
+    form_class = CustomerCreationForm
+    success_url = reverse_lazy("isp:customers-detail")
+
+
+class CustomerUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Customer
+    form_class = CustomerCreationForm
+
+    def get_success_url(self):
+        return reverse_lazy("isp:customer-detail", kwargs={"pk": self.object.pk})
+
+
+class CustomerDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Customer
+    success_url = reverse_lazy("isp:customers")
 
 
 class AddressListView(LoginRequiredMixin, generic.ListView):

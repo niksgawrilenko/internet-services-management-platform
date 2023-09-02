@@ -27,4 +27,4 @@ class CustomerCreationForm(UserCreationForm):
 
     class Meta(UserCreationForm.Meta):
         model = Customer
-        fields = UserCreationForm.Meta.fields + ("phone", "tariff")
+        fields = UserCreationForm.Meta.fields + ("first_name", "last_name", "phone", "email", "tariff")

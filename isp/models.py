@@ -49,7 +49,7 @@ class Customer(AbstractUser):
         verbose_name_plural = "customers"
 
     def get_absolute_url(self):
-        return reverse("ips:customer-detail", kwargs={"pk": self.pk})
+        return reverse("isp:customer-detail", kwargs={"pk": self.pk})
 
 
 class Address(models.Model):

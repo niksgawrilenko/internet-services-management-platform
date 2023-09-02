@@ -2,26 +2,27 @@
 
 {% block content %}
     <h1>Customers List
-{#      <a href="{% url 'taxi:driver-create' %}" class="btn btn-primary link-to-page">#}
-{#        Create#}
-{#      </a>#}
+      <a href="{% url 'isp:customer-create' %}" class="btn btn-primary link-to-page">
+        Create
+      </a>
     </h1>
 
     {% if customers %}
     <table class="table">
       <tr>
         <th>ID</th>
-        <th>First name</th>
-        <th>Last name</th>
+        <th>Username</th>
+        <th>Tariff plane</th>
         <th>Phone number</th>
+        <th>Balance</th>
       </tr>
     {% for customer in customers %}
       <tr>
-        <td>{{ customer.id }}</td>
-{#        <td><a href="{{ driver.get_absolute_url }}">{{ driver.username }} {% if user == driver %} (Me){% endif %}</a></td>#}
-        <td>{{ customer.first_name }}</td>
-        <td>{{ customer.last_name }}</td>
+        <td><a href="{% url 'isp:customer-detail' pk=customer.id %}">{{ customer.id }}</a></td>
+        <td>{{ customer.username }}</td>
+        <td>{{ customer.tariff.name }}</td>
         <td>{{ customer.phone }}</td>
+        <td>{{ customer.balance }}</td>
       </tr>
     {% endfor %}
     </table>

@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>
+    Username: {{ customer.username }}
+
+  </h1>
+  <p><strong>Balance:</strong> {{ customer.balance }} $</p>
+  <p><strong>First name:</strong> {{ customer.first_name }}</p>
+  <p><strong>Last name:</strong> {{ customer.last_name }}</p>
+  <p><strong>Phone number:</strong> {{ customer.phone }}</p>
+  <p><strong>Email:</strong> {{ customer.email }}</p>
+  <p><strong>Is staff:</strong> {{ customer.is_staff }}</p>
+  <br>
+
+  <h2>
+    Tariff plane:
+  </h2>
+  <p><strong>Name:</strong> {{ customer.tariff.name }}</p>
+  <p><strong>Price:</strong> {{ customer.tariff.price }} $</p>
+  <p><strong>Speed:</strong> {{ customer.tariff.speed }} Mb/s</p>
+  <br>
+
+  <h2>
+    Addresses:
+  </h2>
+  <ul>
+    {% for address in customer.address_set.all %}
+      <li>{{ address.city }} ({{ address.street }}, {{ address.building }}, {{ address.connection_technology }})</li>
+    {% endfor %}
+  </ul>
+
+  <br>
+    <a href="{% url 'isp:customer-delete' pk=customer.id %}" class="btn btn-danger">
+      Delete
+    </a>
+
+    <a href="{% url 'isp:customers-update' pk=customer.id %}" class="btn btn-secondary">
+      Update
+    </a>
+{% endblock %}
