@@ -4,8 +4,8 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
 
-from isp.forms import CityCreationForm
-from isp.models import User, Address, City, TariffPlane
+from isp.forms import CityCreationForm, TariffCreationForm
+from isp.models import User, Address, City, Tariff
 
 
 @login_required
@@ -31,10 +31,6 @@ class CityListView(LoginRequiredMixin, generic.ListView):
     paginate_by = 5
     context_object_name = "cities"
     template_name = "isp/cities_list.html"
-
-
-class CityDetailView(LoginRequiredMixin, generic.DetailView):
-    model = City
 
 
 class CityCreateView(LoginRequiredMixin, generic.CreateView):
@@ -66,7 +62,23 @@ class AddressListView(LoginRequiredMixin, generic.ListView):
     template_name = "isp/addresses_list.html"
 
 
-class TariffPlaneListView(LoginRequiredMixin, generic.ListView):
-    model = TariffPlane
-    context_object_name = "tariff_planes"
-    template_name = "isp/tariff_planes_list.html"
+class TariffListView(LoginRequiredMixin, generic.ListView):
+    model = Tariff
+    context_object_name = "tariffs"
+
+
+class TariffCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Tariff
+    form_class = TariffCreationForm
+    success_url = reverse_lazy("isp:tariff-list")
+
+
+class TariffUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Tariff
+    fields = "__all__"
+    success_url = reverse_lazy("isp:tariff-list")
+
+
+class TariffDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Tariff
+    success_url = reverse_lazy("isp:tariff-list")

@@ -1,7 +1,7 @@
 from django.urls import path
 
-from .views import index, CityListView, UserListView, AddressListView, TariffPlaneListView, CityDetailView, \
-    CityCreateView, CityUpdateView, CityDeleteView
+from .views import index, CityListView, UserListView, AddressListView, TariffListView, \
+    CityCreateView, CityUpdateView, CityDeleteView, TariffDeleteView, TariffUpdateView, TariffCreateView
 
 urlpatterns = [
     path("", index, name="index"),
@@ -11,7 +11,6 @@ urlpatterns = [
         name="cities",
     ),
     path("cities/", CityListView.as_view(), name="city-list"),
-    path("cities/<int:pk>/", CityDetailView.as_view(), name="city-detail"),
     path("cities/create/", CityCreateView.as_view(), name="city-create"),
     path("cities/<int:pk>/update/", CityUpdateView.as_view(), name="city-update"),
     path("cities/<int:pk>/delete/", CityDeleteView.as_view(), name="city-delete"),
@@ -26,10 +25,14 @@ urlpatterns = [
         name="addresses",
     ),
     path(
-        "tariff_planes/",
-        TariffPlaneListView.as_view(),
-        name="tariff_planes",
+        "tariffs/",
+        TariffListView.as_view(),
+        name="tariffs",
     ),
+    path("tariffs/", TariffListView.as_view(), name="tariff-list"),
+    path("tariffs/create/", TariffCreateView.as_view(), name="tariff-create"),
+    path("tariffs/<int:pk>/update/", TariffUpdateView.as_view(), name="tariff-update"),
+    path("tariffs/<int:pk>/delete/", TariffDeleteView.as_view(), name="tariff-delete"),
 ]
 
 app_name = "isp"

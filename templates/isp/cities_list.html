@@ -17,7 +17,7 @@
       {% for city in cities %}
         <tr>
           <td>
-            <a href="{% url 'isp:city-detail' pk=city.id %} ">{{ city.id }}</a>
+            {{ city.id }}
           </td>
           <td>
             {{ city.name }}

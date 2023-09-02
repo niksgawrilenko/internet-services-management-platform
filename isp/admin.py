@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from isp.models import User, Address, TariffPlane, City
+from isp.models import User, Address, Tariff, City
 
 
 @admin.register(User)
@@ -16,8 +16,8 @@ class CityAdmin(admin.ModelAdmin):
     list_display = ("name", "region", "country",)
 
 
-@admin.register(TariffPlane)
-class TariffPlaneAdmin(admin.ModelAdmin):
+@admin.register(Tariff)
+class TariffAdmin(admin.ModelAdmin):
     search_fields = ("name",)
     list_filter = ("speed",)
     list_display = ("name", "speed", "price",)

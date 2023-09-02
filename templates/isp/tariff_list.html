@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>
+    Tariff Plane List
+      <a href="{% url 'isp:tariff-create' %}" class="btn btn-primary link-to-page">
+      Create
+    </a>
+  </h1>
+  {% if tariffs %}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Speed</th>
+        <th>Price</th>
+      </tr>
+      {% for tariff in tariffs %}
+        <tr>
+          <td>
+          {{ tariff.id }}
+          </td>
+          <td>
+            {{ tariff.name }}
+          </td>
+          <td>
+            {{ tariff.speed }}
+          </td>
+          <td>
+            {{ tariff.price }}
+          </td>
+          <td>
+            <a href="{% url 'isp:tariff-delete' pk=tariff.id %}" class="btn btn-danger">
+              Delete
+          </a>
+        </td>
+        <td>
+          <a href="{% url 'isp:tariff-update' pk=tariff.id %}" class="btn btn-secondary">
+            Update
+          </a>
+        </td>
+        </tr>
+      {% endfor %}
+    </table>
+
+  {% else %}
+    <p>There are no manufacturers in the service.</p>
+  {% endif %}
+{% endblock %}
