@@ -1,12 +1,12 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from isp.models import User, Address, Tariff, City
+from isp.models import Customer, Address, Tariff, City
 
 
-@admin.register(User)
-class UserAdmin(UserAdmin):
-    list_display = UserAdmin.list_display + ("username", "phone",)
+@admin.register(Customer)
+class CustomerAdmin(UserAdmin):
+    list_display = UserAdmin.list_display + ("username", "phone", "tariff")
 
 
 @admin.register(City)

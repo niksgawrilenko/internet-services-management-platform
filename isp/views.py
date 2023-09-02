@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from isp.forms import CityCreationForm, TariffCreationForm
-from isp.models import User, Address, City, Tariff
+from isp.models import Customer, Address, City, Tariff
 
 
 @login_required
@@ -13,13 +13,13 @@ def index(request):
     """View function for the home page of the site."""
     num_cities = City.objects.count()
     num_addresses = Address.objects.count()
-    num_users = User.objects.count()
+    num_customers = Customer.objects.count()
     num_visits = request.session.get("num_visits", 0)
     request.session["num_visits"] = num_visits + 1
     context = {
         "num_cities": num_cities,
         "num_addresses": num_addresses,
-        "num_users": num_users,
+        "num_customers": num_customers,
         "num_manufacturers": num_visits,
         "num_visits": num_visits + 1,
     }
@@ -50,10 +50,10 @@ class CityDeleteView(LoginRequiredMixin, generic.DeleteView):
     success_url = reverse_lazy("isp:city-list")
 
 
-class UserListView(LoginRequiredMixin, generic.ListView):
-    model = User
-    context_object_name = "users"
-    template_name = "isp/users_list.html"
+class CustomerListView(LoginRequiredMixin, generic.ListView):
+    model = Customer
+    context_object_name = "customers"
+    template_name = "isp/customers_list.html"
 
 
 class AddressListView(LoginRequiredMixin, generic.ListView):

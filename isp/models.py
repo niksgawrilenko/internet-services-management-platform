@@ -29,7 +29,7 @@ class Tariff(models.Model):
         verbose_name_plural = "tariffs"
 
 
-class User(AbstractUser):
+class Customer(AbstractUser):
     phone = models.CharField(max_length=20)
     balance = models.FloatField(default=0.0)
     tariff = models.ForeignKey(
@@ -45,8 +45,11 @@ class User(AbstractUser):
         )
 
     class Meta:
-        verbose_name = "user"
-        verbose_name_plural = "users"
+        verbose_name = "customer"
+        verbose_name_plural = "customers"
+
+    def get_absolute_url(self):
+        return reverse("ips:customer-detail", kwargs={"pk": self.pk})
 
 
 class Address(models.Model):
@@ -62,7 +65,7 @@ class Address(models.Model):
     connection_technology = models.CharField(
         max_length=10, choices=CONNECTION_TECHNOLOGIES
     )
-    users = models.ManyToManyField(User)
+    customers = models.ManyToManyField(Customer)
 
     def __str__(self):
         return (
