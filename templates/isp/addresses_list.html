@@ -2,23 +2,24 @@
 
 {% block content %}
     <h1>Addresses List
-{#      <a href="{% url 'taxi:driver-create' %}" class="btn btn-primary link-to-page">#}
-{#        Create#}
-{#      </a>#}
+      <a href="{% url 'isp:address-create' %}" class="btn btn-primary link-to-page">
+        Create
+      </a>
     </h1>
 
     {% if addresses %}
     <table class="table">
       <tr>
+        <th>ID</th>
         <th>City</th>
         <th>Street</th>
-        <th>House</th>
+        <th>Building</th>
         <th>Connection technology</th>
       </tr>
     {% for address in addresses %}
       <tr>
+      <td><a href="{% url 'isp:address-detail' pk=address.id %}">{{ address.id }}</a></td>
         <td>{{ address.city.name }}</td>
-{#        <td><a href="{{ driver.get_absolute_url }}">{{ driver.username }} {% if user == driver %} (Me){% endif %}</a></td>#}
         <td>{{ address.street }}</td>
         <td>{{ address.building }}</td>
         <td>{{ address.connection_technology }}</td>

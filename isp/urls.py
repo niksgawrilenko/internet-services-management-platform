@@ -2,7 +2,8 @@ from django.urls import path
 
 from .views import index, CityListView, CustomerListView, AddressListView, TariffListView, \
     CityCreateView, CityUpdateView, CityDeleteView, TariffDeleteView, TariffUpdateView, TariffCreateView, \
-    CustomerDeleteView, CustomerCreateView, CustomerDetailView, CustomerUpdateView
+    CustomerDeleteView, CustomerCreateView, CustomerDetailView, CustomerUpdateView, AddressUpdateView, \
+    AddressDeleteView, AddressCreateView, AddressDetailView
 
 urlpatterns = [
     path("", index, name="index"),
@@ -45,6 +46,27 @@ urlpatterns = [
         "addresses/",
         AddressListView.as_view(),
         name="addresses",
+    ),
+    path(
+        "address/<int:pk>/",
+        AddressDetailView.as_view(),
+        name="address-detail"
+    ),
+
+    path(
+        "address/create/",
+        AddressCreateView.as_view(),
+        name="address-create",
+    ),
+    path(
+        "address/<int:pk>/delete/",
+        AddressDeleteView.as_view(),
+        name="address-delete",
+    ),
+    path(
+        "address/<int:pk>/update/",
+        AddressUpdateView.as_view(),
+        name="address-update"
     ),
     path(
         "tariffs/",

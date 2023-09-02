@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>
+    Address:
+
+  </h1>
+  <p><strong>Street:</strong> {{ address.street }}</p>
+  <p><strong>Building:</strong> {{ address.building }}</p>
+  <p><strong>Connection technology:</strong> {{ address.connection_technology }}</p>
+
+  <br>
+
+  <h2>
+    City:
+  </h2>
+  <p><strong>Name:</strong> {{ address.city.name }}</p>
+  <p><strong>Region:</strong> {{ address.city.region }}</p>
+  <p><strong>Country:</strong> {{ address.city.country }}</p>
+  <br>
+
+  <h2>
+    Customers:
+  </h2>
+  <ul>
+    {% for customer in address.customers.all %}
+      <li>{{ customer.username }} ({{ customer.first_name }}, {{ customer.last_name }}, {{ customer.tariff }})</li>
+    {% endfor %}
+  </ul>
+
+
+  <br>
+    <a href="{% url 'isp:address-delete' pk=address.id %}" class="btn btn-danger">
+      Delete
+    </a>
+
+    <a href="{% url 'isp:address-update' pk=address.id %}" class="btn btn-secondary">
+      Update
+    </a>
+{% endblock %}

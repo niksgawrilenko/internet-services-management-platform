@@ -5,7 +5,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views import generic
 
-from isp.forms import CityCreationForm, TariffCreationForm, CustomerCreationForm
+from isp.forms import CityCreationForm, TariffCreationForm, CustomerCreationForm, AddressCreationForm
 from isp.models import Customer, Address, City, Tariff
 
 
@@ -91,6 +91,30 @@ class AddressListView(LoginRequiredMixin, generic.ListView):
     model = Address
     context_object_name = "addresses"
     template_name = "isp/addresses_list.html"
+
+
+class AddressDetailView(LoginRequiredMixin, generic.DetailView):
+    model = Address
+    template_name = "isp/address_detail.html"
+
+
+class AddressCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Address
+    form_class = AddressCreationForm
+    success_url = reverse_lazy("isp:addresses")
+
+
+class AddressUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = Address
+    form_class = AddressCreationForm
+
+    def get_success_url(self):
+        return reverse_lazy("isp:address-detail", kwargs={"pk": self.object.pk})
+
+
+class AddressDeleteView(LoginRequiredMixin, generic.DeleteView):
+    model = Address
+    success_url = reverse_lazy("isp:addresses")
 
 
 class TariffListView(LoginRequiredMixin, generic.ListView):

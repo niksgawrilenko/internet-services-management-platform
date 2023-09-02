@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 
-from isp.models import City, Tariff, Customer
+from isp.models import City, Tariff, Customer, Address
 
 
 class CityCreationForm(forms.ModelForm):
@@ -28,3 +28,10 @@ class CustomerCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
         model = Customer
         fields = UserCreationForm.Meta.fields + ("first_name", "last_name", "phone", "email", "tariff")
+
+
+class AddressCreationForm(forms.ModelForm):
+
+    class Meta(UserCreationForm.Meta):
+        model = Address
+        fields = "__all__"
