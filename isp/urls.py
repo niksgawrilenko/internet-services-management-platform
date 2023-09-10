@@ -1,9 +1,26 @@
 from django.urls import path
 
-from .views import index, CityListView, CustomerListView, AddressListView, TariffListView, \
-    CityCreateView, CityUpdateView, CityDeleteView, TariffDeleteView, TariffUpdateView, TariffCreateView, \
-    CustomerDeleteView, CustomerCreateView, CustomerDetailView, CustomerUpdateView, AddressUpdateView, \
-    AddressDeleteView, AddressCreateView, AddressDetailView
+from .views import (
+    index,
+    CityListView,
+    CustomerListView,
+    AddressListView,
+    TariffListView,
+    CityCreateView,
+    CityUpdateView,
+    CityDeleteView,
+    TariffDeleteView,
+    TariffUpdateView,
+    TariffCreateView,
+    CustomerDeleteView,
+    CustomerCreateView,
+    CustomerDetailView,
+    CustomerUpdateView,
+    AddressUpdateView,
+    AddressDeleteView,
+    AddressCreateView,
+    AddressDetailView
+)
 
 urlpatterns = [
     path("", index, name="index"),
@@ -26,7 +43,6 @@ urlpatterns = [
         CustomerDetailView.as_view(),
         name="customer-detail"
     ),
-
     path(
         "customers/create/",
         CustomerCreateView.as_view(),
@@ -52,7 +68,6 @@ urlpatterns = [
         AddressDetailView.as_view(),
         name="address-detail"
     ),
-
     path(
         "address/create/",
         AddressCreateView.as_view(),

@@ -1,12 +1,12 @@
 {% extends "base.html" %}
-
+{% load crispy_forms_filters %}
 {% block content %}
     <h1>Customers List
       <a href="{% url 'isp:customer-create' %}" class="btn btn-primary link-to-page">
         Create
       </a>
     </h1>
-
+  {% include "includes/search_form.html" %}
     {% if customers %}
     <table class="table">
       <tr>
