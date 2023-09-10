@@ -1,6 +1,7 @@
 # Internet Services Management Platform
 This is a simple CRM project for providing ISP services.
-![InternetServicesManagementPlatform  drawio](https://github.com/niksgawrilenko/internet-services-management-platform/assets/90038040/07783071-5fe2-4b46-8789-bbcdd27021da)
+![InternetServicesManagementPlatform  drawio](https://github.com/niksgawrilenko/internet-services-management-platform/assets/90038040/e55d786d-98d8-472d-8559-46f8d8173b58)
+
 ### Use the following command to load prepared data from fixture to test and debug your code:
   
 `python manage.py loaddata load.json`
