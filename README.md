@@ -9,7 +9,6 @@ This is a simple CRM project for providing ISP services.
 ### After loading data from fixture you can use following superuser (or create another one by yourself):
   - Login: `admin`
   - Password: `1qazcde3`
-  - 
 ## Features
 
 * Authentication functionality for Administrator/User
