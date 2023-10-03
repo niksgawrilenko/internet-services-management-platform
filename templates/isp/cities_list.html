@@ -1,20 +1,24 @@
-{% extends "base.html" %}
+{% extends "base-presentation.html" %}
 {% load crispy_forms_filters %}
 {% block content %}
+<div class="container mt-7">
   <h1>
     Cities List
-    <a href="{% url 'isp:city-create' %}" class="btn btn-primary link-to-page">
+    <a href="{% url 'isp:city-create' %}" class="btn btn-info link-to-page">
       Create
     </a>
   </h1>
   {% include "includes/search_form.html" %}
   {% if cities %}
-    <table class="table">
+    <table class="table table-striped">
       <tr>
         <th>ID</th>
         <th>Name</th>
         <th>Region</th>
         <th>Country</th>
+        <th></th>
+        <th></th>
+
       </tr>
       {% for city in cities %}
         <tr>
@@ -47,4 +51,5 @@
   {% else %}
     <p>There are no manufacturers in the service.</p>
   {% endif %}
+    </div>>
 {% endblock %}

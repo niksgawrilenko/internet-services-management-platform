@@ -1,20 +1,23 @@
-{% extends "base.html" %}
+{% extends "base-presentation.html" %}
 {% load crispy_forms_filters %}
 {% block content %}
+<div class="container mt-7">
   <h1>
     Tariff Plane List
-      <a href="{% url 'isp:tariff-create' %}" class="btn btn-primary link-to-page">
+      <a href="{% url 'isp:tariff-create' %}" class="btn btn-info link-to-page">
       Create
     </a>
   </h1>
   {% include "includes/search_form.html" %}
   {% if tariffs %}
-    <table class="table">
+    <table class="table table-striped">
       <tr>
         <th>ID</th>
         <th>Name</th>
         <th>Speed</th>
         <th>Price</th>
+        <th></th>
+        <th></th>
       </tr>
       {% for tariff in tariffs %}
         <tr>
@@ -47,4 +50,5 @@
   {% else %}
     <p>There are no manufacturers in the service.</p>
   {% endif %}
+</div>
 {% endblock %}

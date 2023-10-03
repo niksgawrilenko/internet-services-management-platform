@@ -1,32 +1,40 @@
-{% extends "base.html" %}
+{% extends "base-presentation.html" %}
 {% load crispy_forms_filters %}
 {% block content %}
-    <h1>Customers List
-      <a href="{% url 'isp:customer-create' %}" class="btn btn-primary link-to-page">
+  <div class="container mt-7">
+    <h1 class="mb-4">Customers List
+      <a href="{% url 'isp:customer-create' %}" class="btn btn-info link-to-page">
         Create
       </a>
     </h1>
-  {% include "includes/search_form.html" %}
+
+    {% include "includes/search_form.html" %}
+
     {% if customers %}
-    <table class="table">
-      <tr>
-        <th>ID</th>
-        <th>Username</th>
-        <th>Tariff plane</th>
-        <th>Phone number</th>
-        <th>Balance</th>
-      </tr>
-    {% for customer in customers %}
-      <tr>
-        <td><a href="{% url 'isp:customer-detail' pk=customer.id %}">{{ customer.id }}</a></td>
-        <td>{{ customer.username }}</td>
-        <td>{{ customer.tariff.name }}</td>
-        <td>{{ customer.phone }}</td>
-        <td>{{ customer.balance }}</td>
-      </tr>
-    {% endfor %}
-    </table>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Username</th>
+            <th>Tariff plane</th>
+            <th>Phone number</th>
+            <th>Balance</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for customer in customers %}
+            <tr>
+              <td><a href="{% url 'isp:customer-detail' pk=customer.id %}">{{ customer.id }}</a></td>
+              <td>{{ customer.username }}</td>
+              <td>{{ customer.tariff.name }}</td>
+              <td>{{ customer.phone }}</td>
+              <td>{{ customer.balance }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
     {% else %}
-      <p>There are no drivers in the service.</p>
+      <p>There are no customers in the service.</p>
     {% endif %}
+  </div>
 {% endblock %}
