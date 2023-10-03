@@ -1,5 +1,6 @@
-{% extends "base.html" %}
+{% extends "base-presentation.html" %}
 {% block content %}
+<div class="container mt-7">
   <h1>
     Address:
 
@@ -36,4 +37,5 @@
     <a href="{% url 'isp:address-update' pk=address.id %}" class="btn btn-secondary">
       Update
     </a>
+</div>
 {% endblock %}

@@ -1,5 +1,6 @@
-{% extends "base.html" %}
+{% extends "base-presentation.html" %}
 {% block content %}
+<div class="container mt-7">
   <h1>
     Username: {{ customer.username }}
 
@@ -37,4 +38,5 @@
     <a href="{% url 'isp:customers-update' pk=customer.id %}" class="btn btn-secondary">
       Update
     </a>
+</div>
 {% endblock %}
