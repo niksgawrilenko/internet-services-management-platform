@@ -2,16 +2,19 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
-<div class="container mt-7">
+<div class="container mt-7 col-md-6">
 {% if form.errors %}
   <p>Your username and password didn't match. Please try again.</p>
 {% endif %}
 
-<h1>Login</h1>
+<h1 class="text-center">Login</h1>
 
 {% if next %}
-  <p>Please login to see this page.</p>
+<div class="alert" role="alert">
+  Please login to see this page.
+</div>
 {% endif %}
+
 
 <form method="post" action="{% url 'login' %}">
   {% csrf_token %}
