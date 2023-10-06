@@ -6,7 +6,7 @@
   <h1>{{ object|yesno:"Update,Create" }} Address</h1>
   <form action="" method="post" novalidate>
     {% csrf_token %}
-    {{ form }}
+    {{ form|crispy }}
 
     <input type="submit" value="Submit" class="btn btn-info">
   </form>
