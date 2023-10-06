@@ -16,14 +16,20 @@
         <th>Street</th>
         <th>Building</th>
         <th>Connection technology</th>
+        <th></th>
       </tr>
     {% for address in addresses %}
       <tr>
-      <td><a href="{% url 'isp:address-detail' pk=address.id %}">{{ address.id }}</a></td>
+        <td>{{ address.id }}</td>
         <td>{{ address.city.name }}</td>
         <td>{{ address.street }}</td>
         <td>{{ address.building }}</td>
         <td>{{ address.connection_technology }}</td>
+        <td>
+            <a href="{% url 'isp:address-detail' pk=address.id %}" class="btn btn-light">
+            Details
+            </a>
+        </td>
       </tr>
     {% endfor %}
     </table>

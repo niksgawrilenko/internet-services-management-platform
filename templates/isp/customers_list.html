@@ -19,16 +19,22 @@
             <th>Tariff plane</th>
             <th>Phone number</th>
             <th>Balance</th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           {% for customer in customers %}
             <tr>
-              <td><a href="{% url 'isp:customer-detail' pk=customer.id %}">{{ customer.id }}</a></td>
+              <td>{{ customer.id }}</td>
               <td>{{ customer.username }}{% if user.is_authenticated and user == customer %} (Me){% endif %}</td>
               <td>{{ customer.tariff.name }}</td>
               <td>{{ customer.phone }}</td>
               <td>{{ customer.balance }}</td>
+              <td>
+              <a href="{% url 'isp:customer-detail' pk=customer.id %}" class="btn btn-light">
+                Details
+              </a>
+              </td>
             </tr>
           {% endfor %}
         </tbody>
