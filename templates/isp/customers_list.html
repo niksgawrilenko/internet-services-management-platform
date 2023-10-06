@@ -25,7 +25,7 @@
           {% for customer in customers %}
             <tr>
               <td><a href="{% url 'isp:customer-detail' pk=customer.id %}">{{ customer.id }}</a></td>
-              <td>{{ customer.username }}</td>
+              <td>{{ customer.username }}{% if user.is_authenticated and user == customer %} (Me){% endif %}</td>
               <td>{{ customer.tariff.name }}</td>
               <td>{{ customer.phone }}</td>
               <td>{{ customer.balance }}</td>
