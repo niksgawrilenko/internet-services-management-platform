@@ -1,6 +1,6 @@
 # Internet Services Management Platform
 
-Django project for providing ISP services.
+#### Django project for providing ISP services.
 
 ![InternetServicesManagementPlatform  drawio](https://github.com/niksgawrilenko/internet-services-management-platform/assets/90038040/e55d786d-98d8-472d-8559-46f8d8173b58)
 
@@ -15,11 +15,14 @@ Django project for providing ISP services.
   - Login: `test_user`
   - Password: `1qazcde3`
 ## Features
-
+### Main functionality:
 * Authentication functionality for Administrator/User
-* Managing cities, adresses and users directly from website
+* Managing cities, addresses and users directly from website
 * Changed admin page for comfortable managing
-
+### Additional functionality:
+* Ability to search lists of users, cities, addresses, tariffs.
+* Ability for the user to connect toan address with one click of a button.
+* Ability for the user to connect a tariff at the touch of a button.
 
 ## Demo
 ![image](https://github.com/niksgawrilenko/internet-services-management-platform/assets/90038040/590f49fc-3ce4-4103-86eb-b88ef184f187)
