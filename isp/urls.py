@@ -19,7 +19,9 @@ from .views import (
     AddressUpdateView,
     AddressDeleteView,
     AddressCreateView,
-    AddressDetailView, TariffConnectView
+    AddressDetailView,
+    TariffConnectView,
+    AddressConnectView
 )
 
 urlpatterns = [
@@ -83,6 +85,7 @@ urlpatterns = [
         AddressUpdateView.as_view(),
         name="address-update"
     ),
+    path("addresses/<int:pk>/connect/", AddressConnectView.as_view(), name="address-connect"),
     path(
         "tariffs/",
         TariffListView.as_view(),

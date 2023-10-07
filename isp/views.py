@@ -192,6 +192,16 @@ class AddressDeleteView(LoginRequiredMixin, generic.DeleteView):
     success_url = reverse_lazy("isp:addresses")
 
 
+class AddressConnectView(LoginRequiredMixin, generic.View):
+    def get(self, request, pk):
+        address = get_object_or_404(Address, pk=pk)
+
+        address.customers.add(request.user)
+
+        messages.success(request, f"You have been connected to address {address.building}.")
+        return redirect(reverse("isp:addresses"))
+
+
 class TariffListView(LoginRequiredMixin, generic.ListView):
     model = Tariff
     paginate_by = 10

@@ -8,6 +8,8 @@
       </a>
     </h1>
 {% include "includes/search_form.html" %}
+{% include "includes/notifications.html" %}
+
     {% if addresses %}
     <table class="table table-striped">
       <tr>
@@ -16,6 +18,7 @@
         <th>Street</th>
         <th>Building</th>
         <th>Connection technology</th>
+        <th></th>
         <th></th>
       </tr>
     {% for address in addresses %}
@@ -28,6 +31,11 @@
         <td>
             <a href="{% url 'isp:address-detail' pk=address.id %}" class="btn btn-light">
             Details
+            </a>
+        </td>
+        <td>
+            <a href="{% url 'isp:address-connect' pk=address.id %}" class="btn btn-success">
+            Connect
             </a>
         </td>
       </tr>
