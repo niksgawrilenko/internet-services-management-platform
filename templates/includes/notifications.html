@@ -1,0 +1,15 @@
+{% if messages %}
+    {% for message in messages %}
+        <div id="notification" class="text-center" role="alert">
+            {{ message }}
+        </div>
+        <script>
+            setTimeout(function() {
+                var notification = document.getElementById('notification');
+                if (notification) {
+                    notification.style.display = 'none';
+                }
+            }, 3000);
+        </script>
+    {% endfor %}
+{% endif %}

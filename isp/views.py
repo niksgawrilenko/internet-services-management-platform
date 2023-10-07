@@ -1,8 +1,9 @@
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Count, QuerySet
 from django.shortcuts import render, get_object_or_404, redirect
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from django.views import generic
 
 from isp.forms import (
@@ -232,3 +233,16 @@ class TariffUpdateView(LoginRequiredMixin, generic.UpdateView):
 class TariffDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Tariff
     success_url = reverse_lazy("isp:tariff-list")
+
+
+class TariffConnectView(LoginRequiredMixin, generic.View):
+    def get(self, request, pk):
+        tariff = get_object_or_404(Tariff, pk=pk)
+
+        user = self.request.user
+        user.tariff = tariff
+        user.save()
+
+        messages.success(request, f"Tariff {tariff.name} connected to {user.username}")
+
+        return redirect(reverse("isp:tariff-list"))

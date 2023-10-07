@@ -1,5 +1,6 @@
 {% extends "base-presentation.html" %}
 {% load crispy_forms_filters %}
+
 {% block content %}
 <div class="container mt-7">
   <h1>
@@ -9,6 +10,7 @@
     </a>
   </h1>
   {% include "includes/search_form.html" %}
+    {% include "includes/notifications.html" %}
   {% if tariffs %}
     <table class="table table-striped">
       <tr>
@@ -17,6 +19,7 @@
         <th>Speed</th>
         <th>Price</th>
         <th></th>
+        <th>Functional</th>
         <th></th>
       </tr>
       {% for tariff in tariffs %}
@@ -43,6 +46,9 @@
             Update
           </a>
         </td>
+          <td>
+            <a href="{% url 'isp:tariff-connect' pk=tariff.id %}" class="btn btn-success">Connect</a>
+          </td>
         </tr>
       {% endfor %}
     </table>
