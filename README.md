@@ -28,7 +28,8 @@
 ![image](https://github.com/niksgawrilenko/internet-services-management-platform/assets/90038040/590f49fc-3ce4-4103-86eb-b88ef184f187)
 ![image](https://github.com/niksgawrilenko/internet-services-management-platform/assets/90038040/86c48201-04d2-4617-b997-c3ebf903df24)
 ![image](https://github.com/niksgawrilenko/internet-services-management-platform/assets/90038040/fc028341-f7f3-4c34-8bc0-87a5cd0506fa)
-![image](https://github.com/niksgawrilenko/internet-services-management-platform/assets/90038040/686ece8d-0b02-45c7-b3ae-27ddc81a81ae)
+![image](https://github.com/niksgawrilenko/internet-services-management-platform/assets/90038040/5264169c-ff57-4663-89b2-ba9831cd17b4)
+![image](https://github.com/niksgawrilenko/internet-services-management-platform/assets/90038040/25bfdaa8-5dbf-44f2-abac-9368239bb684)
 ![image](https://github.com/niksgawrilenko/internet-services-management-platform/assets/90038040/bc043ffe-53c3-4955-9e70-7b0d11f94bcb)
 ![image](https://github.com/niksgawrilenko/internet-services-management-platform/assets/90038040/d8f04ac2-6fbd-4cca-940a-29bc77657ebf)
 
