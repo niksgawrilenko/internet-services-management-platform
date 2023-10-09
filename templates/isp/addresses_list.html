@@ -34,9 +34,11 @@
             </a>
         </td>
         <td>
-            <a href="{% url 'isp:address-connect' pk=address.id %}" class="btn btn-success">
-            Connect
-            </a>
+          {% if request.user in address.customers.all %}
+            <a href="{% url 'isp:address-disconnect' pk=address.id %}" class="btn btn-danger">Disconnect</a>
+          {% else %}
+            <a href="{% url 'isp:address-connect' pk=address.id %}" class="btn btn-success">Connect</a>
+          {% endif %}
         </td>
       </tr>
     {% endfor %}

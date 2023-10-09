@@ -202,6 +202,19 @@ class AddressConnectView(LoginRequiredMixin, generic.View):
         return redirect(reverse("isp:addresses"))
 
 
+class AddressDisconnectView(LoginRequiredMixin, generic.View):
+    def get(self, request, pk):
+        address = get_object_or_404(Address, pk=pk)
+
+        if request.user in address.customers.all():
+            address.customers.remove(request.user)
+            messages.success(request, f"You have been disconnected from address {address.building}.")
+        else:
+            messages.error(request, "You are not connected to this address.")
+
+        return redirect(reverse("isp:addresses"))
+
+
 class TariffListView(LoginRequiredMixin, generic.ListView):
     model = Tariff
     paginate_by = 10
