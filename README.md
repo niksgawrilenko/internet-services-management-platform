@@ -48,3 +48,16 @@ pip install -r requirements.txt
 python manage.py migrate #create data base
 python manage.py runserver # starts Django server
 ```
+
+## Setting environment variables:
+
+For Unix systems (Linux, macOS):
+```shell
+echo "SECRET_KEY=my_secret_key" > .env
+echo "DEBUG=True" >> .env
+```
+For Windows:
+```shell
+echo SECRET_KEY=my_secret_key > .env
+echo DEBUG=True >> .env
+```
