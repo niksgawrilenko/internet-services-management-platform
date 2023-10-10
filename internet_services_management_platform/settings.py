@@ -42,6 +42,10 @@ INSTALLED_APPS = [
     "crispy_forms",
     "crispy_bootstrap4",
     "isp",
+    "isp.addresses",
+    "isp.cities",
+    "isp.customers",
+    "isp.tariffs",
 ]
 
 MIDDLEWARE = [
@@ -108,7 +112,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTH_USER_MODEL = "isp.Customer"
+AUTH_USER_MODEL = "customers.Customer"
 
 LOGIN_REDIRECT_URL = "/"
 # Internationalization

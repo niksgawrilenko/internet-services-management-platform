@@ -1,29 +1,35 @@
 from django.urls import path
 
-from .views import (
-    index,
-    CityListView,
-    CustomerListView,
+from isp.addresses.views import (
     AddressListView,
-    TariffListView,
-    CityCreateView,
-    CityUpdateView,
-    CityDeleteView,
-    TariffDeleteView,
-    TariffUpdateView,
-    TariffCreateView,
-    CustomerDeleteView,
-    CustomerCreateView,
-    CustomerDetailView,
-    CustomerUpdateView,
-    AddressUpdateView,
-    AddressDeleteView,
-    AddressCreateView,
     AddressDetailView,
-    TariffConnectView,
+    AddressCreateView,
+    AddressDeleteView,
+    AddressUpdateView,
     AddressConnectView,
     AddressDisconnectView
 )
+from isp.cities.views import (
+    CityListView,
+    CityCreateView,
+    CityUpdateView,
+    CityDeleteView
+)
+from isp.customers.views import (
+    CustomerListView,
+    CustomerDetailView,
+    CustomerCreateView,
+    CustomerDeleteView,
+    CustomerUpdateView
+)
+from isp.tariffs.views import (
+    TariffListView,
+    TariffCreateView,
+    TariffUpdateView,
+    TariffDeleteView,
+    TariffConnectView
+)
+from isp.views import index
 
 urlpatterns = [
     path("", index, name="index"),
@@ -32,7 +38,11 @@ urlpatterns = [
         CityListView.as_view(),
         name="cities",
     ),
-    path("cities/", CityListView.as_view(), name="city-list"),
+    path(
+        "cities/",
+        CityListView.as_view(),
+        name="city-list",
+    ),
     path("cities/create/", CityCreateView.as_view(), name="city-create"),
     path(
         "cities/<int:pk>/update/",
@@ -48,6 +58,11 @@ urlpatterns = [
         "customers/",
         CustomerListView.as_view(),
         name="customers",
+    ),
+    path(
+        "customers/",
+        CustomerListView.as_view(),
+        name="customers-list",
     ),
     path(
         "customers/<int:pk>/",
@@ -73,6 +88,11 @@ urlpatterns = [
         "addresses/",
         AddressListView.as_view(),
         name="addresses",
+    ),
+    path(
+        "addresses/",
+        AddressListView.as_view(),
+        name="address-list",
     ),
     path(
         "address/<int:pk>/",

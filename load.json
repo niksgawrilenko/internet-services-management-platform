@@ -1,6 +1,6 @@
 [
   {
-    "model": "isp.tariff",
+    "model": "tariffs.tariff",
     "pk": 1,
     "fields": {
       "name": "Basic Plan",
@@ -9,7 +9,7 @@
     }
   },
   {
-    "model": "isp.tariff",
+    "model": "tariffs.tariff",
     "pk": 2,
     "fields": {
       "name": "Standard Plan",
@@ -18,7 +18,7 @@
     }
   },
   {
-    "model": "isp.tariff",
+    "model": "tariffs.tariff",
     "pk": 3,
     "fields": {
       "name": "Premium Plan",
@@ -27,7 +27,7 @@
     }
   },
   {
-    "model": "isp.tariff",
+    "model": "tariffs.tariff",
     "pk": 4,
     "fields": {
       "name": "Ultra Plan",
@@ -36,7 +36,7 @@
     }
   },
   {
-    "model": "isp.tariff",
+    "model": "tariffs.tariff",
     "pk": 5,
     "fields": {
       "name": "Custom Plan",
@@ -45,7 +45,7 @@
     }
   },
   {
-    "model": "isp.city",
+    "model": "cities.city",
     "pk": 1,
     "fields": {
       "name": "New York",
@@ -54,7 +54,7 @@
     }
   },
   {
-    "model": "isp.city",
+    "model": "cities.city",
     "pk": 2,
     "fields": {
       "name": "Paris",
@@ -63,7 +63,7 @@
     }
   },
   {
-    "model": "isp.city",
+    "model": "cities.city",
     "pk": 3,
     "fields": {
       "name": "Tokyo",
@@ -72,7 +72,7 @@
     }
   },
   {
-    "model": "isp.city",
+    "model": "cities.city",
     "pk": 4,
     "fields": {
       "name": "London",
@@ -81,7 +81,7 @@
     }
   },
   {
-    "model": "isp.city",
+    "model": "cities.city",
     "pk": 5,
     "fields": {
       "name": "Sydney",
@@ -90,7 +90,7 @@
     }
   },
   {
-    "model": "isp.address",
+    "model": "addresses.address",
     "pk": 1,
     "fields": {
       "city": 1,
@@ -101,7 +101,7 @@
     }
   },
   {
-    "model": "isp.address",
+    "model": "addresses.address",
     "pk": 2,
     "fields": {
       "city": 2,
@@ -112,7 +112,7 @@
     }
   },
   {
-    "model": "isp.address",
+    "model": "addresses.address",
     "pk": 3,
     "fields": {
       "city": 3,
@@ -123,7 +123,7 @@
     }
   },
   {
-    "model": "isp.address",
+    "model": "addresses.address",
     "pk": 4,
     "fields": {
       "city": 4,
@@ -134,7 +134,7 @@
     }
   },
   {
-    "model": "isp.address",
+    "model": "addresses.address",
     "pk": 5,
     "fields": {
       "city": 5,
@@ -145,7 +145,7 @@
     }
   },
   {
-    "model": "isp.customer",
+    "model": "customers.customer",
     "pk": 1,
     "fields": {
       "password": "pbkdf2_sha256$320000$6uM28XWOFX6ewyloJzjqmt$L+ZhofPylneoaL2iZS4sZu4ZMUNb4oIevfAdzOMn/eE=",
@@ -164,7 +164,7 @@
     }
   },
   {
-    "model": "isp.customer",
+    "model": "customers.customer",
     "pk": 2,
     "fields": {
       "username": "customer1",
@@ -177,7 +177,7 @@
     }
   },
   {
-    "model": "isp.customer",
+    "model": "customers.customer",
     "pk": 3,
     "fields": {
       "username": "customer2",
@@ -190,7 +190,7 @@
     }
   },
   {
-    "model": "isp.customer",
+    "model": "customers.customer",
     "pk": 4,
     "fields": {
       "username": "customer3",
@@ -203,7 +203,7 @@
     }
   },
   {
-    "model": "isp.customer",
+    "model": "customers.customer",
     "pk": 5,
     "fields": {
       "username": "customer4",
@@ -216,7 +216,7 @@
     }
   },
   {
-    "model": "isp.customer",
+    "model": "customers.customer",
     "pk": 6,
     "fields": {
       "username": "customer5",
@@ -229,7 +229,7 @@
     }
   },
   {
-    "model": "isp.customer",
+    "model": "customers.customer",
     "pk": 7,
     "fields": {
       "username": "customer6",
@@ -242,7 +242,7 @@
     }
   },
   {
-    "model": "isp.customer",
+    "model": "customers.customer",
     "pk": 8,
     "fields": {
       "username": "customer7",
@@ -255,7 +255,7 @@
     }
   },
   {
-    "model": "isp.customer",
+    "model": "customers.customer",
     "pk": 9,
     "fields": {
       "username": "customer8",
@@ -268,7 +268,7 @@
     }
   },
   {
-    "model": "isp.customer",
+    "model": "customers.customer",
     "pk": 10,
     "fields": {
       "username": "customer9",
@@ -281,7 +281,7 @@
     }
   },
   {
-  "model": "isp.customer",
+  "model": "customers.customer",
   "pk": 11,
   "fields": {
     "username": "test_user",
