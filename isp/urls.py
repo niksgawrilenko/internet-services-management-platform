@@ -21,7 +21,8 @@ from .views import (
     AddressCreateView,
     AddressDetailView,
     TariffConnectView,
-    AddressConnectView, AddressDisconnectView
+    AddressConnectView,
+    AddressDisconnectView
 )
 
 urlpatterns = [
@@ -33,8 +34,16 @@ urlpatterns = [
     ),
     path("cities/", CityListView.as_view(), name="city-list"),
     path("cities/create/", CityCreateView.as_view(), name="city-create"),
-    path("cities/<int:pk>/update/", CityUpdateView.as_view(), name="city-update"),
-    path("cities/<int:pk>/delete/", CityDeleteView.as_view(), name="city-delete"),
+    path(
+        "cities/<int:pk>/update/",
+        CityUpdateView.as_view(),
+        name="city-update"
+    ),
+    path(
+        "cities/<int:pk>/delete/",
+        CityDeleteView.as_view(),
+        name="city-delete"
+    ),
     path(
         "customers/",
         CustomerListView.as_view(),
@@ -85,8 +94,16 @@ urlpatterns = [
         AddressUpdateView.as_view(),
         name="address-update"
     ),
-    path("addresses/<int:pk>/connect/", AddressConnectView.as_view(), name="address-connect"),
-    path("addresses/<int:pk>/disconnect/", AddressDisconnectView.as_view(), name="address-disconnect"),
+    path(
+        "addresses/<int:pk>/connect/",
+        AddressConnectView.as_view(),
+        name="address-connect"
+    ),
+    path(
+        "addresses/<int:pk>/disconnect/",
+        AddressDisconnectView.as_view(),
+        name="address-disconnect"
+    ),
     path(
         "tariffs/",
         TariffListView.as_view(),
@@ -94,9 +111,21 @@ urlpatterns = [
     ),
     path("tariffs/", TariffListView.as_view(), name="tariff-list"),
     path("tariffs/create/", TariffCreateView.as_view(), name="tariff-create"),
-    path("tariffs/<int:pk>/update/", TariffUpdateView.as_view(), name="tariff-update"),
-    path("tariffs/<int:pk>/delete/", TariffDeleteView.as_view(), name="tariff-delete"),
-    path("tariffs/<int:pk>/connect/", TariffConnectView.as_view(), name="tariff-connect"),
+    path(
+        "tariffs/<int:pk>/update/",
+        TariffUpdateView.as_view(),
+        name="tariff-update"
+    ),
+    path(
+        "tariffs/<int:pk>/delete/",
+        TariffDeleteView.as_view(),
+        name="tariff-delete"
+    ),
+    path(
+        "tariffs/<int:pk>/connect/",
+        TariffConnectView.as_view(),
+        name="tariff-connect"
+    ),
 ]
 
 app_name = "isp"

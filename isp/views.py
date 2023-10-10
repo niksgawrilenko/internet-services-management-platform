@@ -2,6 +2,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Count, QuerySet
+from django.http import HttpResponse, HttpRequest
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
 from django.views import generic
@@ -112,7 +113,7 @@ class CustomerDetailView(LoginRequiredMixin, generic.DetailView):
     model = Customer
     template_name = "isp/customer_detail.html"
 
-    def get_context_data(self, **kwargs):
+    def get_context_data(self, **kwargs) -> dict:
         context = super().get_context_data(**kwargs)
         context["addresses_with_users"] = Address.objects.annotate(
             num_customers=Count("customers")
@@ -124,16 +125,22 @@ class CustomerCreateView(LoginRequiredMixin, generic.CreateView):
     model = Customer
     form_class = CustomerCreationForm
 
-    def get_success_url(self):
-        return reverse_lazy("isp:customer-detail", kwargs={"pk": self.object.pk})
+    def get_success_url(self) -> str:
+        return reverse_lazy(
+            "isp:customer-detail",
+            kwargs={"pk": self.object.pk}
+        )
 
 
 class CustomerUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Customer
     form_class = CustomerCreationForm
 
-    def get_success_url(self):
-        return reverse_lazy("isp:customer-detail", kwargs={"pk": self.object.pk})
+    def get_success_url(self) -> str:
+        return reverse_lazy(
+            "isp:customer-detail",
+            kwargs={"pk": self.object.pk}
+        )
 
 
 class CustomerDeleteView(LoginRequiredMixin, generic.DeleteView):
@@ -183,8 +190,11 @@ class AddressUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Address
     form_class = AddressCreationForm
 
-    def get_success_url(self):
-        return reverse_lazy("isp:address-detail", kwargs={"pk": self.object.pk})
+    def get_success_url(self) -> str:
+        return reverse_lazy(
+            "isp:address-detail",
+            kwargs={"pk": self.object.pk}
+        )
 
 
 class AddressDeleteView(LoginRequiredMixin, generic.DeleteView):
@@ -193,22 +203,28 @@ class AddressDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 
 class AddressConnectView(LoginRequiredMixin, generic.View):
-    def get(self, request, pk):
+    def get(self, request, pk: int) -> HttpResponse:
         address = get_object_or_404(Address, pk=pk)
 
         address.customers.add(request.user)
 
-        messages.success(request, f"You have been connected to address {address.building}.")
+        messages.success(
+            request,
+            f"You have been connected to address {address.building}."
+        )
         return redirect(reverse("isp:addresses"))
 
 
 class AddressDisconnectView(LoginRequiredMixin, generic.View):
-    def get(self, request, pk):
+    def get(self, request: HttpRequest, pk: int) -> HttpResponse:
         address = get_object_or_404(Address, pk=pk)
 
         if request.user in address.customers.all():
             address.customers.remove(request.user)
-            messages.success(request, f"You have been disconnected from address {address.building}.")
+            messages.success(
+                request,
+                f"You have been disconnected from address {address.building}."
+            )
         else:
             messages.error(request, "You are not connected to this address.")
 
@@ -259,13 +275,16 @@ class TariffDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 
 class TariffConnectView(LoginRequiredMixin, generic.View):
-    def get(self, request, pk):
+    def get(self, request: HttpRequest, pk: int) -> HttpResponse:
         tariff = get_object_or_404(Tariff, pk=pk)
 
         user = self.request.user
         user.tariff = tariff
         user.save()
 
-        messages.success(request, f"Tariff {tariff.name} connected to {user.username}")
+        messages.success(
+            request,
+            f"Tariff {tariff.name} connected to {user.username}"
+        )
 
         return redirect(reverse("isp:tariff-list"))

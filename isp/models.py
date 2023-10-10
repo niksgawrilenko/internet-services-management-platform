@@ -48,7 +48,7 @@ class Customer(AbstractUser):
         verbose_name = "customer"
         verbose_name_plural = "customers"
 
-    def get_absolute_url(self):
+    def get_absolute_url(self) -> str:
         return reverse("isp:customer-detail", kwargs={"pk": self.pk})
 
 
