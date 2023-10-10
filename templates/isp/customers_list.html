@@ -1,46 +1,44 @@
 {% extends "base-presentation.html" %}
 {% load crispy_forms_filters %}
 {% block content %}
-  <div class="container mt-7">
-    <h1 class="mb-4">Customers List
+<div class="container mt-7">
+   <h1 class="mb-4">Customers List
       <a href="{% url 'isp:customer-create' %}" class="btn btn-info link-to-page">
-        Create
+      Create
       </a>
-    </h1>
-
-    {% include "includes/search_form.html" %}
-
-    {% if customers %}
-      <table class="table table-striped">
-        <thead>
-          <tr>
+   </h1>
+   {% include "includes/search_form.html" %}
+   {% if customers %}
+   <table class="table table-striped">
+      <thead>
+         <tr>
             <th>ID</th>
             <th>Username</th>
             <th>Tariff plan</th>
             <th>Phone number</th>
             <th>Balance</th>
             <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for customer in customers %}
-            <tr>
-              <td>{{ customer.id }}</td>
-              <td>{{ customer.username }}{% if user.is_authenticated and user == customer %} (Me){% endif %}</td>
-              <td>{{ customer.tariff.name }}</td>
-              <td>{{ customer.phone }}</td>
-              <td>{{ customer.balance }}</td>
-              <td>
-              <a href="{% url 'isp:customer-detail' pk=customer.id %}" class="btn btn-light">
-                Details
-              </a>
-              </td>
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    {% else %}
-      <p>The customers list is empty.</p>
-    {% endif %}
-  </div>
+         </tr>
+      </thead>
+      <tbody>
+         {% for customer in customers %}
+         <tr>
+            <td>{{ customer.id }}</td>
+            <td>{{ customer.username }}{% if user.is_authenticated and user == customer %} (Me){% endif %}</td>
+            <td>{{ customer.tariff.name }}</td>
+            <td>{{ customer.phone }}</td>
+            <td>{{ customer.balance }}</td>
+            <td>
+               <a href="{% url 'isp:customer-detail' pk=customer.id %}" class="btn btn-light">
+               Details
+               </a>
+            </td>
+         </tr>
+         {% endfor %}
+      </tbody>
+   </table>
+   {% else %}
+   <p>The customers list is empty.</p>
+   {% endif %}
+</div>
 {% endblock %}

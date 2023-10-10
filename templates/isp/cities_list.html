@@ -2,54 +2,53 @@
 {% load crispy_forms_filters %}
 {% block content %}
 <div class="container mt-7">
-  <h1>
-    Cities List
-    <a href="{% url 'isp:city-create' %}" class="btn btn-info link-to-page">
+   <h1>
+      Cities List
+      <a href="{% url 'isp:city-create' %}" class="btn btn-info link-to-page">
       Create
-    </a>
-  </h1>
-  {% include "includes/search_form.html" %}
-  {% if cities %}
-    <table class="table table-striped">
+      </a>
+   </h1>
+   {% include "includes/search_form.html" %}
+   {% if cities %}
+   <table class="table table-striped">
       <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Region</th>
-        <th>Country</th>
-        <th></th>
-        <th></th>
-
+         <th>ID</th>
+         <th>Name</th>
+         <th>Region</th>
+         <th>Country</th>
+         <th></th>
+         <th></th>
       </tr>
       {% for city in cities %}
-        <tr>
-          <td>
+      <tr>
+         <td>
             {{ city.id }}
-          </td>
-          <td>
+         </td>
+         <td>
             {{ city.name }}
-          </td>
-          <td>
+         </td>
+         <td>
             {{ city.region }}
-          </td>
-          <td>
+         </td>
+         <td>
             {{ city.country }}
-          </td>
-          <td>
+         </td>
+         <td>
             <a href="{% url 'isp:city-delete' pk=city.id %}" class="btn btn-danger">
-              Delete
+            Delete
             </a>
-          </td>
-          <td>
-          <a href="{% url 'isp:city-update' pk=city.id %}" class="btn btn-secondary">
+         </td>
+         <td>
+            <a href="{% url 'isp:city-update' pk=city.id %}" class="btn btn-secondary">
             Update
-          </a>
-          </td>
-        </tr>
+            </a>
+         </td>
+      </tr>
       {% endfor %}
-    </table>
-
-  {% else %}
-    <p>The list of cities is empty.</p>
-  {% endif %}
-    </div>>
+   </table>
+   {% else %}
+   <p>The list of cities is empty.</p>
+   {% endif %}
+</div>
+>
 {% endblock %}

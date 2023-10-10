@@ -2,49 +2,48 @@
 {% load crispy_forms_filters %}
 {% block content %}
 <div class="container mt-7">
-    <h1>Addresses List
+   <h1>Addresses List
       <a href="{% url 'isp:address-create' %}" class="btn btn-info link-to-page">
-        Create
+      Create
       </a>
-    </h1>
-{% include "includes/search_form.html" %}
-{% include "includes/notifications.html" %}
-
-    {% if addresses %}
-    <table class="table table-striped">
+   </h1>
+   {% include "includes/search_form.html" %}
+   {% include "includes/notifications.html" %}
+   {% if addresses %}
+   <table class="table table-striped">
       <tr>
-        <th>ID</th>
-        <th>City</th>
-        <th>Street</th>
-        <th>Building</th>
-        <th>Connection technology</th>
-        <th></th>
-        <th></th>
+         <th>ID</th>
+         <th>City</th>
+         <th>Street</th>
+         <th>Building</th>
+         <th>Connection technology</th>
+         <th></th>
+         <th></th>
       </tr>
-    {% for address in addresses %}
+      {% for address in addresses %}
       <tr>
-        <td>{{ address.id }}</td>
-        <td>{{ address.city.name }}</td>
-        <td>{{ address.street }}</td>
-        <td>{{ address.building }}</td>
-        <td>{{ address.connection_technology }}</td>
-        <td>
+         <td>{{ address.id }}</td>
+         <td>{{ address.city.name }}</td>
+         <td>{{ address.street }}</td>
+         <td>{{ address.building }}</td>
+         <td>{{ address.connection_technology }}</td>
+         <td>
             <a href="{% url 'isp:address-detail' pk=address.id %}" class="btn btn-light">
             Details
             </a>
-        </td>
-        <td>
-          {% if request.user in address.customers.all %}
+         </td>
+         <td>
+            {% if request.user in address.customers.all %}
             <a href="{% url 'isp:address-disconnect' pk=address.id %}" class="btn btn-danger">Disconnect</a>
-          {% else %}
+            {% else %}
             <a href="{% url 'isp:address-connect' pk=address.id %}" class="btn btn-success">Connect</a>
-          {% endif %}
-        </td>
+            {% endif %}
+         </td>
       </tr>
-    {% endfor %}
-    </table>
-    {% else %}
-      <p>The address list is empty.</p>
-    {% endif %}
+      {% endfor %}
+   </table>
+   {% else %}
+   <p>The address list is empty.</p>
+   {% endif %}
 </div>
 {% endblock %}

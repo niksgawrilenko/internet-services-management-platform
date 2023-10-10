@@ -1,65 +1,62 @@
 {% extends "base-presentation.html" %}
 {% load crispy_forms_filters %}
-
 {% block content %}
 <div class="container mt-7">
-  <h1>
-    Tariff Plans List
+   <h1>
+      Tariff Plans List
       <a href="{% url 'isp:tariff-create' %}" class="btn btn-info link-to-page">
       Create
-    </a>
-  </h1>
-  {% include "includes/search_form.html" %}
-    {% include "includes/notifications.html" %}
-  {% if tariffs %}
-    <table class="table table-striped">
+      </a>
+   </h1>
+   {% include "includes/search_form.html" %}
+   {% include "includes/notifications.html" %}
+   {% if tariffs %}
+   <table class="table table-striped">
       <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>Speed</th>
-        <th>Price</th>
-        <th></th>
-        <th>Functional</th>
-        <th></th>
+         <th>ID</th>
+         <th>Name</th>
+         <th>Speed</th>
+         <th>Price</th>
+         <th></th>
+         <th>Functional</th>
+         <th></th>
       </tr>
       {% for tariff in tariffs %}
-        <tr>
-          <td>
-          {{ tariff.id }}
-          </td>
-          <td>
+      <tr>
+         <td>
+            {{ tariff.id }}
+         </td>
+         <td>
             {{ tariff.name }}
-          </td>
-          <td>
+         </td>
+         <td>
             {{ tariff.speed }}
-          </td>
-          <td>
+         </td>
+         <td>
             {{ tariff.price }}
-          </td>
-          <td>
+         </td>
+         <td>
             <a href="{% url 'isp:tariff-delete' pk=tariff.id %}" class="btn btn-danger">
-              Delete
-          </a>
-        </td>
-        <td>
-          <a href="{% url 'isp:tariff-update' pk=tariff.id %}" class="btn btn-secondary">
+            Delete
+            </a>
+         </td>
+         <td>
+            <a href="{% url 'isp:tariff-update' pk=tariff.id %}" class="btn btn-secondary">
             Update
-          </a>
-        </td>
-        <td>
-          {% if user.tariff == tariff %}
+            </a>
+         </td>
+         <td>
+            {% if user.tariff == tariff %}
             <button class="btn btn-primary" disabled>Connected</button>
-          {% else %}
+            {% else %}
             <a href="{% url 'isp:tariff-connect' pk=tariff.id %}" class="btn btn-success">Connect</a>
-          {% endif %}
-        </td>
-
-        </tr>
+            {% endif %}
+         </td>
+      </tr>
       {% endfor %}
-    </table>
-
-  {% else %}
-    <p>Tariff plans list is empty.</p>
-  {% endif %}
+   </table>
+   {% else %}
+   <p>Tariff plans list is empty.</p>
+   {% endif %}
 </div>
 {% endblock %}
