@@ -24,10 +24,10 @@
       {% endfor %}
    </ul>
    <br>
-   <a href="{% url 'isp:address-delete' pk=address.id %}" class="btn btn-danger">
+   <a href="{% url 'addresses:address-delete' pk=address.id %}" class="btn btn-danger">
    Delete
    </a>
-   <a href="{% url 'isp:address-update' pk=address.id %}" class="btn btn-secondary">
+   <a href="{% url 'addresses:address-update' pk=address.id %}" class="btn btn-secondary">
    Update
    </a>
 </div>

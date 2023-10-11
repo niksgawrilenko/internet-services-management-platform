@@ -1,8 +1,9 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
-from isp.addresses.models import Address
-from isp.cities.models import City
-from isp.customers.models import Customer
+
+from addresses.models import Address
+from cities.models import City
+from customers.models import Customer
 
 
 @login_required

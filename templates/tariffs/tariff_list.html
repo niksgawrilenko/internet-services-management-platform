@@ -4,7 +4,7 @@
 <div class="container mt-7">
    <h1>
       Tariff Plans List
-      <a href="{% url 'isp:tariff-create' %}" class="btn btn-info link-to-page">
+      <a href="{% url 'tariffs:tariff-create' %}" class="btn btn-info link-to-page">
       Create
       </a>
    </h1>
@@ -36,12 +36,12 @@
             {{ tariff.price }}
          </td>
          <td>
-            <a href="{% url 'isp:tariff-delete' pk=tariff.id %}" class="btn btn-danger">
+            <a href="{% url 'tariffs:tariff-delete' pk=tariff.id %}" class="btn btn-danger">
             Delete
             </a>
          </td>
          <td>
-            <a href="{% url 'isp:tariff-update' pk=tariff.id %}" class="btn btn-secondary">
+            <a href="{% url 'tariffs:tariff-update' pk=tariff.id %}" class="btn btn-secondary">
             Update
             </a>
          </td>
@@ -49,7 +49,7 @@
             {% if user.tariff == tariff %}
             <button class="btn btn-primary" disabled>Connected</button>
             {% else %}
-            <a href="{% url 'isp:tariff-connect' pk=tariff.id %}" class="btn btn-success">Connect</a>
+            <a href="{% url 'tariffs:tariff-connect' pk=tariff.id %}" class="btn btn-success">Connect</a>
             {% endif %}
          </td>
       </tr>

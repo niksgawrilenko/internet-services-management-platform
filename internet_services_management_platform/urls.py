@@ -22,6 +22,10 @@ from django.urls import path, include
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("isp.urls", namespace="isp")),
+    path("addresses/", include("addresses.urls", namespace="addresses")),
+    path("cities/", include("cities.urls", namespace="cities")),
+    path("customers/", include("customers.urls", namespace="customers")),
+    path("tariffs/", include("tariffs.urls", namespace="tariffs")),
     path("accounts/", include("django.contrib.auth.urls")),
     path("__debug__/", include("debug_toolbar.urls")),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

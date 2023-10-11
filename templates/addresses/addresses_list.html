@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container mt-7">
    <h1>Addresses List
-      <a href="{% url 'isp:address-create' %}" class="btn btn-info link-to-page">
+      <a href="{% url 'addresses:address-create' %}" class="btn btn-info link-to-page">
       Create
       </a>
    </h1>
@@ -28,15 +28,15 @@
          <td>{{ address.building }}</td>
          <td>{{ address.connection_technology }}</td>
          <td>
-            <a href="{% url 'isp:address-detail' pk=address.id %}" class="btn btn-light">
+            <a href="{% url 'addresses:address-detail' pk=address.id %}" class="btn btn-light">
             Details
             </a>
          </td>
          <td>
             {% if request.user in address.customers.all %}
-            <a href="{% url 'isp:address-disconnect' pk=address.id %}" class="btn btn-danger">Disconnect</a>
+            <a href="{% url 'addresses:address-disconnect' pk=address.id %}" class="btn btn-danger">Disconnect</a>
             {% else %}
-            <a href="{% url 'isp:address-connect' pk=address.id %}" class="btn btn-success">Connect</a>
+            <a href="{% url 'addresses:address-connect' pk=address.id %}" class="btn btn-success">Connect</a>
             {% endif %}
          </td>
       </tr>

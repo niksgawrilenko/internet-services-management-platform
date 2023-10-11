@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container mt-7">
    <h1 class="mb-4">Customers List
-      <a href="{% url 'isp:customer-create' %}" class="btn btn-info link-to-page">
+      <a href="{% url 'customers:customer-create' %}" class="btn btn-info link-to-page">
       Create
       </a>
    </h1>
@@ -29,7 +29,7 @@
             <td>{{ customer.phone }}</td>
             <td>{{ customer.balance }}</td>
             <td>
-               <a href="{% url 'isp:customer-detail' pk=customer.id %}" class="btn btn-light">
+               <a href="{% url 'customers:customer-detail' pk=customer.id %}" class="btn btn-light">
                Details
                </a>
             </td>

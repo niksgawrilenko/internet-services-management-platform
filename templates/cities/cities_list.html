@@ -4,7 +4,7 @@
 <div class="container mt-7">
    <h1>
       Cities List
-      <a href="{% url 'isp:city-create' %}" class="btn btn-info link-to-page">
+      <a href="{% url 'cities:city-create' %}" class="btn btn-info link-to-page">
       Create
       </a>
    </h1>
@@ -34,12 +34,12 @@
             {{ city.country }}
          </td>
          <td>
-            <a href="{% url 'isp:city-delete' pk=city.id %}" class="btn btn-danger">
+            <a href="{% url 'cities:city-delete' pk=city.id %}" class="btn btn-danger">
             Delete
             </a>
          </td>
          <td>
-            <a href="{% url 'isp:city-update' pk=city.id %}" class="btn btn-secondary">
+            <a href="{% url 'cities:city-update' pk=city.id %}" class="btn btn-secondary">
             Update
             </a>
          </td>

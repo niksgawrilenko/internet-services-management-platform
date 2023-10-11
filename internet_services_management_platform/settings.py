@@ -42,10 +42,10 @@ INSTALLED_APPS = [
     "crispy_forms",
     "crispy_bootstrap4",
     "isp",
-    "isp.addresses",
-    "isp.cities",
-    "isp.customers",
-    "isp.tariffs",
+    "addresses",
+    "cities",
+    "customers",
+    "tariffs",
 ]
 
 MIDDLEWARE = [
