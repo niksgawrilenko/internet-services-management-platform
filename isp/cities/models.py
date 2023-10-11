@@ -6,7 +6,7 @@ class City(models.Model):
     region = models.CharField(max_length=255)
     country = models.CharField(max_length=255)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.name}, {self.region}, {self.country}"
 
     class Meta:

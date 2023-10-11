@@ -12,7 +12,7 @@ class Customer(AbstractUser):
         Tariff, on_delete=models.CASCADE, null=True, blank=True
     )
 
-    def __str__(self):
+    def __str__(self) -> str:
         return (
             f"{self.username} "
             f"({self.first_name} "

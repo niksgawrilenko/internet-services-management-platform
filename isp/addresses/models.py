@@ -19,7 +19,7 @@ class Address(models.Model):
     )
     customers = models.ManyToManyField(Customer)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return (
             f"{self.city}, "
             f"{self.street}, "

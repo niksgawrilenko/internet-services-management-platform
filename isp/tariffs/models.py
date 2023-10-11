@@ -6,7 +6,7 @@ class Tariff(models.Model):
     speed = models.IntegerField()
     price = models.IntegerField()
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"{self.name}, {self.speed} Mb/c, {self.price}$"
 
     class Meta:
