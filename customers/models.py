@@ -9,7 +9,11 @@ class Customer(AbstractUser):
     phone = models.CharField(max_length=20)
     balance = models.FloatField(default=0.0)
     tariff = models.ForeignKey(
-        Tariff, on_delete=models.CASCADE, null=True, blank=True
+        Tariff,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="customers"
     )
 
     def __str__(self) -> str:

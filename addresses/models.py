@@ -17,7 +17,7 @@ class Address(models.Model):
     connection_technology = models.CharField(
         max_length=10, choices=CONNECTION_TECHNOLOGIES
     )
-    customers = models.ManyToManyField(Customer)
+    customers = models.ManyToManyField(Customer, related_name="addresses")
 
     def __str__(self) -> str:
         return (
